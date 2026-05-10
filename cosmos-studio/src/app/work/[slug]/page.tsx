@@ -1,11 +1,21 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { FashionExperience } from "@/components/work/FashionExperience";
 import { ArchitectureExperience } from "@/components/work/ArchitectureExperience";
 import { TechExperience } from "@/components/work/TechExperience";
 import { ArtisanExperience } from "@/components/work/ArtisanExperience";
 import { GenZExperience } from "@/components/work/GenZExperience";
 import { WellnessExperience } from "@/components/work/WellnessExperience";
+
+export async function generateStaticParams() {
+  return [
+    { slug: "maison-velours" },
+    { slug: "kanso-minimal" },
+    { slug: "northline" },
+    { slug: "stillshore" },
+    { slug: "atelier-lumen" },
+    { slug: "aura-skincare" },
+  ];
+}
 
 // This acts as the router/controller for the totally distinct project universes.
 export default async function WorkProjectPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -41,14 +51,5 @@ export default async function WorkProjectPage({ params }: { params: Promise<{ sl
     return <WellnessExperience />;
   }
 
-  // Fallback for demo purposes
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-[var(--cream)] text-[var(--charcoal)]">
-      <div className="text-center">
-        <h1 className="font-display text-4xl mb-4">Project Universe in Development</h1>
-        <p className="text-sm font-light text-[var(--muted)] mb-8">This distinct world ({slug}) is currently being crafted.</p>
-        <Link href="/#work" className="text-sm border-b border-[var(--charcoal)] pb-1">Return to reality</Link>
-      </div>
-    </div>
-  );
+  return notFound();
 }

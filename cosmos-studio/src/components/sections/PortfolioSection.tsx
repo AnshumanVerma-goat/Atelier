@@ -76,6 +76,15 @@ const PROJECTS = [
   }
 ] as const;
 
+const PROJECT_URLS = [
+  "/work/maison-velours",
+  "/work/stillshore",
+  "/work/northline",
+  "/work/atelier-lumen",
+  "/work/kanso-minimal",
+  "/work/aura-skincare",
+];
+
 export function PortfolioSection() {
   const [open, setOpen] = useState<number | null>(null);
   const active = useMemo(() => (open === null ? null : PROJECTS[open] ?? null), [open]);
@@ -107,7 +116,7 @@ export function PortfolioSection() {
         <div className="mt-12 flex flex-col gap-5 lg:hidden px-4 sm:px-6">
           {/* 1. Featured Large Project */}
           <Link
-            href="/work/maison-velours"
+            href={PROJECT_URLS[0]}
             className="group relative w-full overflow-hidden rounded-[20px] aspect-[4/5] sm:aspect-[3/4] text-left border border-[rgba(255,255,255,0.1)] shadow-[0_24px_60px_-40px_rgba(42,38,35,0.18)]"
           >
             <motion.div
@@ -137,11 +146,10 @@ export function PortfolioSection() {
           {/* 2. Compact Twin Projects */}
           <div className="grid grid-cols-2 gap-4 mt-2">
              {[1, 2].map((idx) => {
-               const urls = ["", "", "/work/northline"];
                return (
                  <Link
                     key={idx}
-                    href={urls[idx] || "#"}
+                    href={PROJECT_URLS[idx]}
                     className="group relative overflow-hidden rounded-[16px] aspect-square text-left bg-[var(--ivory)] border border-[var(--border-subtle)] shadow-[0_12px_40px_-20px_rgba(42,38,35,0.08)] block"
                   >
                     <motion.div
@@ -167,7 +175,7 @@ export function PortfolioSection() {
 
           {/* 3. Wide Cinematic Project */}
           <Link
-            href="/work/kanso-minimal"
+            href={PROJECT_URLS[4]}
             className="group mt-2 relative w-full overflow-hidden rounded-[16px] aspect-[16/10] sm:aspect-[2/1] text-left border border-[var(--border-subtle)] shadow-[0_16px_50px_-24px_rgba(42,38,35,0.12)] bg-[var(--charcoal)] block"
           >
             <motion.div
@@ -195,12 +203,11 @@ export function PortfolioSection() {
              <div className="shrink-0 flex items-center justify-center snap-center w-[60px] ml-2 text-[10px] font-medium tracking-[0.2em] uppercase text-[var(--taupe)]/60 rotate-180 [writing-mode:vertical-rl]">
                Archive
              </div>
-             {[4, 5].map((idx) => {
-               const urls = ["", "", "", "", "/work/atelier-lumen", "/work/aura-skincare"];
+             {[3, 5].map((idx) => {
                return (
                  <Link
                    key={idx}
-                   href={urls[idx] || "#"}
+                   href={PROJECT_URLS[idx]}
                    className="group relative w-[240px] sm:w-[280px] shrink-0 snap-center overflow-hidden rounded-[14px] text-left aspect-[16/11] border border-[var(--border-subtle)] shadow-sm bg-[var(--ivory)] block"
                  >
                    <motion.div
@@ -225,18 +232,10 @@ export function PortfolioSection() {
         {/* Desktop: asymmetric editorial grid */}
         <div className="mt-14 hidden gap-5 lg:grid lg:grid-cols-12 lg:gap-6">
           {PROJECTS.map((p, i) => {
-             const desktopUrls = [
-               "/work/maison-velours", 
-               "/work/stillshore", 
-               "/work/northline", 
-               "/work/atelier-lumen", 
-               "/work/kanso-minimal", 
-               "/work/aura-skincare"
-             ];
              return (
             <Link
               key={p.name}
-              href={desktopUrls[i] || "#"}
+              href={PROJECT_URLS[i]}
               className={cn(
                 "group min-h-0 overflow-hidden rounded-[24px] border border-[var(--border-subtle)] bg-[var(--cream)] text-left shadow-[var(--shadow-soft)] transition-[border-color,box-shadow] duration-700 hover:border-[var(--charcoal)]/12 hover:shadow-[0_40px_100px_-54px_rgba(42,38,35,0.2)] block",
                 p.gridClass,
