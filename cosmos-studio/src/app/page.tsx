@@ -11,7 +11,7 @@ import { ContactSection } from "@/components/sections/ContactSection";
 export default function Home() {
   return (
     <ExperienceShell>
-      <main className="relative bg-[var(--cream)] text-[var(--charcoal)]">
+      <main className="relative bg-[var(--cream)] pb-[max(6rem,env(safe-area-inset-bottom))] text-[var(--charcoal)] lg:pb-0">
         <HeroSection />
         <PortfolioSection />
         <ServicesSection />

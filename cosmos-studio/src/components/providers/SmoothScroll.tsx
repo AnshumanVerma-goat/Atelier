@@ -15,11 +15,14 @@ export function SmoothScroll({ children }: Props) {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     const lenis = new Lenis({
-      duration: 1.35,
+      duration: reduceMotion ? 0 : 1.28,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      touchMultiplier: 1.05,
+      smoothWheel: !reduceMotion,
+      touchMultiplier: reduceMotion ? 1 : 1.08,
+      wheelMultiplier: reduceMotion ? 1 : 0.92,
     });
     lenisRef.current = lenis;
 

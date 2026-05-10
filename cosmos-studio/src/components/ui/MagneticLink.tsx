@@ -5,29 +5,29 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import type { ComponentProps, ReactNode } from "react";
 import { useRef } from "react";
 
-type Props = Omit<ComponentProps<typeof motion.button>, "children"> & {
+type Props = Omit<ComponentProps<typeof motion.a>, "children"> & {
   children: ReactNode;
-  variant?: "solid" | "ghost";
+  variant?: "solid" | "outline";
 };
 
-export function MagneticButton({
+export function MagneticLink({
   className,
   children,
   variant = "solid",
   ...rest
 }: Props) {
-  const ref = useRef<HTMLButtonElement>(null);
+  const ref = useRef<HTMLAnchorElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const sx = useSpring(x, { stiffness: 280, damping: 26, mass: 0.35 });
   const sy = useSpring(y, { stiffness: 280, damping: 26, mass: 0.35 });
 
-  const onMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const onMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const el = ref.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
-    x.set((e.clientX - (r.left + r.width / 2)) * 0.11);
-    y.set((e.clientY - (r.top + r.height / 2)) * 0.11);
+    x.set((e.clientX - (r.left + r.width / 2)) * 0.12);
+    y.set((e.clientY - (r.top + r.height / 2)) * 0.12);
   };
 
   const onLeave = () => {
@@ -36,7 +36,7 @@ export function MagneticButton({
   };
 
   return (
-    <motion.button
+    <motion.a
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
@@ -44,16 +44,16 @@ export function MagneticButton({
       whileTap={{ scale: 0.992 }}
       transition={{ duration: 0.22 }}
       className={cn(
-        "rounded-full px-7 py-3 text-[15px] font-medium tracking-[-0.01em] transition-[opacity,box-shadow,border-color] duration-500",
+        "inline-flex min-h-[52px] items-center justify-center rounded-full px-9 text-[15px] font-medium transition-[opacity,box-shadow] duration-500",
         variant === "solid" &&
           "bg-[var(--espresso)] text-[var(--cream)] shadow-[var(--shadow-soft)] hover:opacity-[0.93]",
-        variant === "ghost" &&
+        variant === "outline" &&
           "border border-[var(--border-subtle)] bg-transparent text-[var(--charcoal)] hover:border-[var(--charcoal)]/18 hover:shadow-[var(--shadow-soft)]",
         className,
       )}
       {...rest}
     >
       {children}
-    </motion.button>
+    </motion.a>
   );
 }
