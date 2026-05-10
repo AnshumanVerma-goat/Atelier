@@ -4,19 +4,19 @@ import { motion } from "framer-motion";
 
 const REVIEWS = [
   {
-    name: "Camille V.",
-    role: "Creative director",
+    name: "Kavya Jain",
+    role: "Fashion Label Founder",
     quote:
       "The site feels like our campaign extended — editorial, confident, never noisy.",
   },
   {
-    name: "James Okonkwo",
+    name: "Dev Malhotra",
     role: "Founder",
     quote:
       "Finally a digital presence that matches how premium our product actually is.",
   },
   {
-    name: "Elena Marchetti",
+    name: "Aanya Mehra",
     role: "Brand lead",
     quote:
       "Restraint is rare. This work trusts whitespace the way we trust fabric.",

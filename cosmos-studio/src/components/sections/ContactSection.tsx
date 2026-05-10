@@ -3,6 +3,7 @@
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { submitContact } from "@/app/actions/contact";
 
 const BUSINESS_TYPES = [
   "Fashion / retail",
@@ -15,11 +16,28 @@ const BUSINESS_TYPES = [
 ];
 
 const fieldClass =
-  "mt-1.5 w-full rounded-[10px] border border-[var(--border-subtle)] bg-[var(--ivory)] px-3 py-2.5 text-[14px] font-light tracking-[-0.01em] text-[var(--charcoal)] outline-none transition-[border-color,box-shadow] duration-500 placeholder:text-[var(--taupe)] focus:border-[var(--charcoal)]/14 focus:ring-2 focus:ring-[var(--taupe)]/25 focus:ring-offset-2 focus:ring-offset-[var(--cream)]";
+  "mt-1.5 w-full rounded-[10px] border border-[var(--border-subtle)] bg-[var(--ivory)] px-3 py-2.5 text-[14px] font-light tracking-[-0.01em] text-[var(--charcoal)] outline-none transition-[border-color,box-shadow] duration-500 placeholder:text-[var(--taupe)] focus:border-[var(--charcoal)]/14 focus:ring-2 focus:ring-[var(--taupe)]/25 focus:ring-offset-2 focus:ring-offset-[var(--cream)] disabled:opacity-50";
 
 export function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
-  const [emailCopy, setEmailCopy] = useState("hello@atelier.studio");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [emailCopy, setEmailCopy] = useState("anshumanverma027@gmail.com");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    const formData = new FormData(e.currentTarget);
+    const res = await submitContact(formData);
+    
+    if (res.success) {
+      setSent(true);
+      setSuccessMessage(res.message);
+    } else {
+      alert(res.message);
+    }
+    setIsSubmitting(false);
+  }
 
   return (
     <section
@@ -52,12 +70,12 @@ export function ContactSection() {
               type="button"
               onClick={async () => {
                 try {
-                  await navigator.clipboard.writeText("hello@atelier.studio");
+                  await navigator.clipboard.writeText("anshumanverma027@gmail.com");
                   setEmailCopy("Copied");
                 } catch {
-                  setEmailCopy("hello@atelier.studio");
+                  setEmailCopy("anshumanverma027@gmail.com");
                 }
-                window.setTimeout(() => setEmailCopy("hello@atelier.studio"), 1600);
+                window.setTimeout(() => setEmailCopy("anshumanverma027@gmail.com"), 1600);
               }}
               className="mt-3 w-full rounded-[14px] border border-[var(--border-subtle)] bg-transparent px-4 py-3.5 text-left font-mono text-[14px] text-[var(--charcoal)] transition-[border-color] duration-500 hover:border-[var(--charcoal)]/12"
             >
@@ -65,11 +83,9 @@ export function ContactSection() {
             </button>
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-[14px] font-light">
+          <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-3 text-[14px] font-light">
             <a
-              href="https://calendly.com"
-              target="_blank"
-              rel="noreferrer"
+              href="tel:+917869055374"
               className="editorial-underline text-[var(--charcoal)] transition-opacity duration-500 hover:opacity-70"
             >
               Schedule a call
@@ -83,6 +99,15 @@ export function ContactSection() {
             >
               Instagram
             </a>
+            <span className="text-[var(--taupe)]">·</span>
+            <a
+              href="https://wa.me/917869055374"
+              target="_blank"
+              rel="noreferrer"
+              className="editorial-underline text-[var(--graphite)] transition-opacity duration-500 hover:text-[var(--charcoal)]"
+            >
+              Message directly
+            </a>
           </div>
         </motion.div>
 
@@ -93,15 +118,21 @@ export function ContactSection() {
           transition={{ duration: 0.8, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
           className="rounded-[20px] border border-[var(--border-subtle)] bg-[var(--cream)]/94 p-6 shadow-[var(--shadow-soft)] sm:p-8 lg:col-span-7"
         >
-          <div className="grid gap-5">
-            <label className="block">
-              <span className="text-[12px] font-medium tracking-wide uppercase text-[var(--graphite)]">Name</span>
-              <input className={fieldClass} placeholder="Your name" autoComplete="name" />
-            </label>
+          <form onSubmit={handleSubmit} className="grid gap-5">
+            <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
+              <label className="block">
+                <span className="text-[12px] font-medium tracking-wide uppercase text-[var(--graphite)]">Name</span>
+                <input name="name" className={fieldClass} placeholder="Your name" autoComplete="name" required disabled={isSubmitting || sent} />
+              </label>
+              <label className="block">
+                <span className="text-[12px] font-medium tracking-wide uppercase text-[var(--graphite)]">Email</span>
+                <input name="email" type="email" className={fieldClass} placeholder="Email address" autoComplete="email" required disabled={isSubmitting || sent} />
+              </label>
+            </div>
 
             <label className="block">
               <span className="text-[12px] font-medium tracking-wide uppercase text-[var(--graphite)]">Focus</span>
-              <select className={fieldClass}>
+              <select name="focus" className={fieldClass} disabled={isSubmitting || sent}>
                 {BUSINESS_TYPES.map((b) => (
                   <option key={b} value={b}>
                     {b}
@@ -113,49 +144,52 @@ export function ContactSection() {
             <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
               <label className="block">
                 <span className="text-[12px] font-medium tracking-wide uppercase text-[var(--graphite)]">Budget (USD)</span>
-                <input className={fieldClass} placeholder="Range" />
+                <input name="budget" className={fieldClass} placeholder="Range" disabled={isSubmitting || sent} />
               </label>
               <label className="block">
                 <span className="text-[12px] font-medium tracking-wide uppercase text-[var(--graphite)]">Timeline</span>
-                <input className={fieldClass} placeholder="Ideal launch" />
+                <input name="timeline" className={fieldClass} placeholder="Ideal launch" disabled={isSubmitting || sent} />
               </label>
             </div>
 
             <label className="block">
               <span className="text-[12px] font-medium tracking-wide uppercase text-[var(--graphite)]">Project</span>
               <textarea
+                name="project"
+                required
+                disabled={isSubmitting || sent}
                 className={`${fieldClass} min-h-[100px] resize-none leading-relaxed`}
                 placeholder="A few lines — mood, references, goals."
               />
             </label>
-          </div>
 
-          <div className="relative mt-8">
-            <AnimatePresence mode="wait">
-              {sent ? (
-                <motion.div
-                  key="done"
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -4 }}
-                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex min-h-[52px] items-center justify-center rounded-full border border-[var(--forest)]/25 bg-[rgba(61,74,66,0.06)] text-[15px] font-normal tracking-[-0.01em] text-[var(--forest)]"
-                >
-                  Received — thank you
-                </motion.div>
-              ) : (
-                <motion.div key="form" exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                  <MagneticButton
-                    type="button"
-                    className="w-full min-h-[52px]"
-                    onClick={() => setSent(true)}
+            <div className="relative mt-8">
+              <AnimatePresence mode="wait">
+                {sent ? (
+                  <motion.div
+                    key="done"
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                    className="flex min-h-[52px] items-center justify-center rounded-[14px] border border-[var(--forest)]/25 bg-[rgba(61,74,66,0.06)] px-6 py-3 text-center text-[15px] font-normal leading-relaxed tracking-[-0.01em] text-[var(--forest)]"
                   >
-                    Send inquiry
-                  </MagneticButton>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+                    {successMessage}
+                  </motion.div>
+                ) : (
+                  <motion.div key="form" exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                    <MagneticButton
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full min-h-[52px]"
+                    >
+                      {isSubmitting ? "Sending..." : "Send inquiry"}
+                    </MagneticButton>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </form>
         </motion.div>
       </div>
     </section>

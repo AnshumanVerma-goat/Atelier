@@ -10,7 +10,16 @@ const PLANS = [
     name: "Starter Presence",
     desc: "Single elegant landing page for creators & personal profiles.",
     price: 1999,
-    perks: ["Mobile-first responsive design", "Smooth animations & modern typography", "Contact integration", "2 refinement rounds", "3-5 day delivery"],
+    perks: [
+      "Modern single-page website",
+      "Fully mobile responsive",
+      "Smooth scroll & premium typography",
+      "Contact form & WhatsApp integration",
+      "Social links & basic SEO setup",
+      "Fast loading optimisation",
+      "2 revision rounds",
+      "3–5 day delivery"
+    ],
     quote: "Small in scale, precise in feeling."
   },
   {
