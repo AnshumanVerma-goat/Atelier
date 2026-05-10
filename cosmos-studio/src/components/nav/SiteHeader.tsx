@@ -46,36 +46,33 @@ export function SiteHeader() {
     <>
       <motion.header
         style={{
-          backgroundColor: headerBackground,
-          backdropFilter: headerBackdrop,
-          WebkitBackdropFilter: headerBackdrop,
           boxShadow: divider,
         }}
-        animate={{ y: hideBar ? "-100%" : 0 }}
-        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed left-0 right-0 top-0 z-[60]"
+        animate={{ y: hideBar ? "-100%" : 0, backgroundColor: hideBar ? "transparent" : "rgba(250, 249, 246, 0.6)" }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="fixed left-0 right-0 top-0 z-[60] backdrop-blur-xl border-b border-[var(--border-subtle)]/30 mix-blend-multiply"
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2.5 sm:px-6 lg:px-8">
-          <a href="#top" className="font-display text-[1.0625rem] font-semibold tracking-[-0.02em] text-[var(--charcoal)] transition-opacity duration-500 hover:opacity-65">
+        <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 sm:px-12 lg:px-20 lg:py-6">
+          <a href="#top" className="font-display text-[1rem] sm:text-[1.1rem] font-medium tracking-tight text-[var(--charcoal)] transition-opacity duration-700 hover:opacity-50">
             Atelier
           </a>
 
-          <nav className="hidden items-center gap-9 lg:flex">
+          <nav className="hidden items-center gap-10 lg:flex">
             {LINKS.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="editorial-underline text-[13px] font-normal tracking-[-0.01em] text-[var(--graphite)] transition-colors duration-500 hover:text-[var(--charcoal)]"
+                className="text-[12px] uppercase tracking-[0.15em] font-medium text-[var(--charcoal)]/60 transition-colors duration-500 hover:text-[var(--charcoal)]"
               >
                 {l.label}
               </a>
             ))}
           </nav>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-3">
             <a
               href="#contact"
-              className="hidden rounded-full bg-[var(--espresso)] px-[1.125rem] py-2 text-[13px] font-medium tracking-[-0.01em] text-[var(--cream)] shadow-[var(--shadow-soft)] transition-[opacity,transform] duration-500 hover:opacity-90 lg:inline-flex"
+              className="hidden lg:inline-flex items-center justify-center border border-[var(--charcoal)]/10 rounded-full px-5 py-2 text-[11px] uppercase tracking-[0.1em] font-medium text-[var(--charcoal)] transition-colors duration-500 hover:bg-[var(--charcoal)] hover:text-[var(--cream)]"
             >
               Inquire
             </a>
@@ -85,14 +82,14 @@ export function SiteHeader() {
               aria-expanded={menuOpen}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               onClick={() => setMenuOpen((o) => !o)}
-              className="grid size-10 place-items-center rounded-full border border-[var(--border-subtle)] bg-[var(--ivory)]/90 backdrop-blur-sm transition-opacity duration-500 hover:opacity-85 lg:hidden"
+              className="grid size-10 place-items-center rounded-full border border-[var(--border-subtle)]/50 bg-transparent transition-opacity duration-500 hover:opacity-50 lg:hidden"
             >
               <span className="sr-only">Menu</span>
-              <span className="flex w-[17px] flex-col gap-[5px]">
+              <span className="flex w-[16px] flex-col gap-[4px]">
                 <motion.span
-                  animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+                  animate={menuOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
                   className="h-px bg-[var(--charcoal)]"
-                  transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 />
                 <motion.span
                   animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
@@ -100,9 +97,9 @@ export function SiteHeader() {
                   transition={{ duration: 0.2 }}
                 />
                 <motion.span
-                  animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+                  animate={menuOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
                   className="h-px bg-[var(--charcoal)]"
-                  transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 />
               </span>
             </button>

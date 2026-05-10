@@ -224,121 +224,65 @@ export function PortfolioSection() {
 
         {/* Desktop: asymmetric editorial grid */}
         <div className="mt-14 hidden gap-5 lg:grid lg:grid-cols-12 lg:gap-6">
-          {PROJECTS.map((p, i) => (
-            <motion.button
+          {PROJECTS.map((p, i) => {
+             const desktopUrls = [
+               "/work/maison-velours", 
+               "/work/stillshore", 
+               "/work/northline", 
+               "/work/atelier-lumen", 
+               "/work/kanso-minimal", 
+               "/work/aura-skincare"
+             ];
+             return (
+            <Link
               key={p.name}
-              type="button"
-              onClick={() => setOpen(i)}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.06, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              href={desktopUrls[i] || "#"}
               className={cn(
-                "group min-h-0 overflow-hidden rounded-[24px] border border-[var(--border-subtle)] bg-[var(--cream)] text-left shadow-[var(--shadow-soft)] transition-[border-color,box-shadow] duration-700 hover:border-[var(--charcoal)]/12 hover:shadow-[0_40px_100px_-54px_rgba(42,38,35,0.2)]",
+                "group min-h-0 overflow-hidden rounded-[24px] border border-[var(--border-subtle)] bg-[var(--cream)] text-left shadow-[var(--shadow-soft)] transition-[border-color,box-shadow] duration-700 hover:border-[var(--charcoal)]/12 hover:shadow-[0_40px_100px_-54px_rgba(42,38,35,0.2)] block",
                 p.gridClass,
               )}
             >
-              <div className={cn("relative min-h-[200px] w-full flex-1 overflow-hidden", p.imageClass)}>
-                <Image
-                  src={p.image}
-                  alt={p.alt}
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover transition-[transform] duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.035]"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--charcoal)]/55 via-[var(--charcoal)]/10 to-transparent opacity-90 transition-opacity duration-700 group-hover:opacity-100" />
-                <div className="absolute inset-x-0 bottom-0 translate-y-1 p-7 opacity-95 transition-[transform,opacity] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100">
-                  <p className="text-[11px] font-light tracking-[0.12em] text-[var(--cream)]/80">
-                    {p.type}
-                  </p>
-                  <p className="font-display mt-2 text-[clamp(1.5rem,2.4vw,2.25rem)] font-medium tracking-[-0.022em] text-[var(--cream)]">
-                    {p.name}
-                  </p>
-                  <p className="mt-2 max-w-sm text-[13px] font-light leading-relaxed text-[var(--cream)]/85">
-                    {p.detail}
-                  </p>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ delay: i * 0.06, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+                className="h-full flex flex-col"
+              >
+                <div className={cn("relative min-h-[200px] w-full flex-1 overflow-hidden", p.imageClass)}>
+                  <Image
+                    src={p.image}
+                    alt={p.alt}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover transition-[transform] duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.035]"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--charcoal)]/55 via-[var(--charcoal)]/10 to-transparent opacity-90 transition-opacity duration-700 group-hover:opacity-100" />
+                  <div className="absolute inset-x-0 bottom-0 translate-y-1 p-7 opacity-95 transition-[transform,opacity] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100">
+                    <p className="text-[11px] font-light tracking-[0.12em] text-[var(--cream)]/80">
+                      {p.type}
+                    </p>
+                    <p className="font-display mt-2 text-[clamp(1.5rem,2.4vw,2.25rem)] font-medium tracking-[-0.022em] text-[var(--cream)]">
+                      {p.name}
+                    </p>
+                    <p className="mt-2 max-w-sm text-[13px] font-light leading-relaxed text-[var(--cream)]/85">
+                      {p.detail}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center justify-between gap-4 px-7 py-6">
-                <span className="text-[12px] font-normal tracking-[-0.01em] text-[var(--burgundy)]">
-                  {p.metric}
-                </span>
-                <span className="text-[12px] font-normal text-[var(--charcoal)]/45 transition-colors duration-500 group-hover:text-[var(--charcoal)]">
-                  Case study →
-                </span>
-              </div>
-            </motion.button>
-          ))}
+                <div className="flex items-center justify-between gap-4 px-7 py-6">
+                  <span className="text-[12px] font-normal tracking-[-0.01em] text-[var(--burgundy)]">
+                    {p.metric}
+                  </span>
+                  <span className="text-[12px] font-normal text-[var(--charcoal)]/45 transition-colors duration-500 group-hover:text-[var(--charcoal)]">
+                    Case study →
+                  </span>
+                </div>
+              </motion.div>
+            </Link>
+          )})}
         </div>
       </div>
-
-      <AnimatePresence>
-        {active && open !== null ? (
-          <motion.div
-            className="fixed inset-0 z-[90] flex items-end justify-center bg-[var(--charcoal)]/28 p-3 backdrop-blur-[6px] sm:items-center sm:p-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
-            onClick={() => setOpen(null)}
-          >
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 14, opacity: 0 }}
-              transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1] }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-[24px] border border-[var(--border-subtle)] bg-[var(--cream)] shadow-[var(--shadow-soft)]"
-            >
-              <div className="relative aspect-[16/10] w-full sm:aspect-[2/1]">
-                <Image
-                  src={active.image}
-                  alt={active.alt}
-                  fill
-                  sizes="96vw"
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--cream)] via-transparent to-transparent" />
-              </div>
-
-              <div className="relative z-[1] -mt-16 px-8 pb-10 pt-4 sm:-mt-20 sm:px-10 sm:pb-12">
-                <div className="flex flex-wrap items-end justify-between gap-4">
-                  <div>
-                    <p className="text-[12px] font-light tracking-[0.12em] text-[var(--taupe)]">
-                      {active.type}
-                    </p>
-                    <h4 className="font-display mt-2 text-[clamp(1.75rem,4vw,2.5rem)] font-medium tracking-[-0.026em] text-[var(--charcoal)]">
-                      {active.name}
-                    </h4>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => setOpen(null)}
-                    className="rounded-full border border-[var(--border-subtle)] px-4 py-2 text-[12px] font-normal text-[var(--graphite)] transition-colors duration-500 hover:border-[var(--charcoal)]/15 hover:text-[var(--charcoal)]"
-                  >
-                    Close
-                  </button>
-                </div>
-
-                <p className="mt-8 max-w-xl text-[16px] font-light leading-[1.75] tracking-[-0.01em] text-[var(--muted)]">
-                  {active.detail}
-                </p>
-                <p className="mt-6 border-t border-[var(--border-subtle)] pt-6 text-[13px] font-normal tracking-[-0.01em] text-[var(--burgundy)]">
-                  {active.metric}
-                </p>
-
-                <a
-                  href="#contact"
-                  className="mt-10 inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-[var(--espresso)] text-[14px] font-medium text-[var(--cream)] transition-opacity duration-500 hover:opacity-90"
-                >
-                  Discuss a similar engagement
-                </a>
-              </div>
-            </motion.div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
     </section>
   );
 }
