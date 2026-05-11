@@ -8,7 +8,7 @@ import { useMemo, useState } from "react";
 const PLANS = [
   {
     name: "Starter Presence",
-    desc: "Single elegant landing page for creators & personal profiles.",
+    desc: "A single, elegant landing page for creators & personal profiles.",
     price: 1999,
     perks: [
       "Modern single-page website",
@@ -24,7 +24,7 @@ const PLANS = [
   },
   {
     name: "Studio Presence",
-    desc: "Multi-section site for small businesses & brands.",
+    desc: "A multi-section website for modern businesses & brands.",
     price: 3999,
     perks: ["Premium visual direction", "Custom project & gallery sections", "Targeted custom interactions", "Basic SEO & Performance setup", "7-10 day delivery"],
     featured: true,
@@ -32,10 +32,10 @@ const PLANS = [
   },
   {
     name: "Signature Experience",
-    desc: "Fully custom experience for premium brands & startups.",
+    desc: "A fully bespoke digital experience for established houses.",
     price: 6499,
     perks: ["Strategic visual identity & planning", "Cinematic editorial storytelling", "Advanced transitions", "Priority support & retained timeline", "Launch partnership"],
-    quote: "Made for brands that prefer atmosphere over noise."
+    quote: "For brands that prefer atmosphere over noise."
   },
 ];
 
@@ -72,7 +72,7 @@ export function PricingSection() {
             Aesthetic precision. Accessible scale.
           </h2>
           <p className="mt-5 max-w-[30rem] mx-auto text-[15px] sm:text-[16px] font-light leading-[1.75] tracking-[-0.01em] text-[var(--muted)]">
-            Indian independent studio pricing — designed to give local businesses and global creators a premium home online.
+            Premium digital architecture, structured to give independent businesses and global creators a permanent home online.
           </p>
         </motion.div>
 

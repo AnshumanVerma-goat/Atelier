@@ -4,24 +4,24 @@ import { motion } from "framer-motion";
 
 const STEPS = [
   {
-    title: "Listen",
-    body: "Brief, references, constraints — a shared vocabulary before form.",
+    title: "Vocabulary",
+    body: "Brief, references, constraints—establishing a shared language before form.",
   },
   {
-    title: "Frame",
-    body: "Architecture of the story: hierarchy, rhythm, and the single promise.",
+    title: "Architecture",
+    body: "The skeleton of the site. Mapping hierarchy, rhythm, and your single promise.",
   },
   {
-    title: "Design",
-    body: "Typography systems, spacing laws, and motion as punctuation — never decoration.",
+    title: "Aesthetics",
+    body: "UI/UX design. Typography systems, spacing laws, and motion as punctuation.",
   },
   {
-    title: "Refine",
-    body: "Editing passes until the page feels inevitable on every breakpoint.",
+    title: "Development",
+    body: "Clean code and structural editing until the experience feels inevitable on every device.",
   },
   {
-    title: "Launch",
-    body: "Measured rollout, analytics touchpoints, and a calm handoff.",
+    title: "Exhibition",
+    body: "A measured launch, analytics integration, and a calm, curated handoff.",
   },
 ];
 
@@ -45,11 +45,10 @@ export function AboutProcessSection() {
             Studio & Process
           </p>
           <h2 className="font-display mt-4 text-[clamp(2rem,4vw,2.75rem)] font-medium leading-[1.04] tracking-[-0.02em] text-[var(--charcoal)]">
-            Quiet confidence is a craft decision.
+            Quiet confidence is a design decision.
           </h2>
           <p className="mt-6 max-w-[28rem] text-[15px] sm:text-[16px] font-light leading-[1.75] tracking-[-0.01em] text-[var(--muted)]">
-            I work with founders and houses who treat the website as part of the garment — cut cleanly,
-            lined perfectly, never shouting. Based between cities. Projects by invitation.
+            I partner with founders who view their website as the digital equivalent of a flagship space. Every interaction is considered. Every pixel must earn its place.
           </p>
         </motion.div>
 

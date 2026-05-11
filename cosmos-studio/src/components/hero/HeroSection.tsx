@@ -59,38 +59,29 @@ export function HeroSection() {
               Presence
             </motion.div>
 
-            <h1 className="font-display text-[clamp(2.5rem,7vw,6.5rem)] font-light leading-[1.02] tracking-[-0.03em] text-[var(--charcoal)] mix-blend-darken relative z-10 flex flex-col">
+            <h1 className="font-display text-[clamp(3.25rem,8vw,6.5rem)] font-light leading-[1.02] tracking-[-0.03em] text-[var(--charcoal)] mix-blend-darken relative z-10 flex flex-col">
               <motion.span
                 initial={{ opacity: 0, y: 35, rotate: 1 }}
                 animate={{ opacity: 1, y: 0, rotate: 0 }}
                 transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
                 className="block origin-bottom-left"
               >
-                Digital spaces
+                Editorial websites
               </motion.span>
               
               <motion.span
                 initial={{ opacity: 0, x: -20, filter: "blur(8px)" }}
                 animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                 transition={{ duration: 1.8, delay: 0.35, ease: "easeOut" }}
-                className="block text-[0.8em] mt-3 sm:mt-5 italic text-[var(--taupe)] font-serif self-start sm:ml-[8%]"
+                className="block text-[0.8em] mt-1.5 sm:mt-5 italic text-[var(--taupe)] font-serif self-start sm:ml-[8%]"
               >
-                with the patience of fashion,
-              </motion.span>
-              
-              <motion.span
-                initial={{ opacity: 0, y: 25 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.6, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="block origin-bottom-left mt-3 sm:mt-5 self-start sm:ml-[4%]"
-              >
-                & the clarity of architecture.
+                for modern brands.
               </motion.span>
             </h1>
           </div>
 
           {/* Asymmetrical Offset Content */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-4 w-full relative z-20">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4 w-full relative z-20">
              <div className="md:col-start-6 md:col-span-6 lg:col-start-7 lg:col-span-5 xl:col-start-8 xl:col-span-4 flex flex-col items-start pr-4 sm:pr-0">
                 <motion.div
                    style={{ y: y2 }}
@@ -100,8 +91,8 @@ export function HeroSection() {
                    className="relative"
                 >
                   <div className="absolute -left-5 sm:-left-8 top-2.5 h-px w-3 sm:w-5 bg-[var(--charcoal)]/30" />
-                  <p className="text-[14px] sm:text-[15.5px] font-light leading-[1.8] tracking-[-0.01em] text-[var(--charcoal)]/80 sm:text-justify max-w-[24rem]">
-                    Editorial layouts, restrained motion, and typography-led storytelling for houses that value silence as much as signal. We shape the atmosphere before we build the interface.
+                  <p className="text-[15px] sm:text-[15.5px] font-light leading-[1.75] tracking-[-0.01em] text-[var(--charcoal)]/85 sm:text-justify max-w-[22rem]">
+                    We design and develop premium digital experiences for houses that value restraint. Blending thoughtful UI/UX with elegant engineering to create spaces focused on typography and quiet motion.
                   </p>
                 </motion.div>
 

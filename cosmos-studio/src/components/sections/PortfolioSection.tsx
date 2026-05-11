@@ -9,11 +9,10 @@ import { useMemo, useState } from "react";
 const PROJECTS = [
   {
     name: "Maison Velours",
-    type: "Restaurant",
+    type: "Hospitality",
     metric: "Fully booked",
-    detail: "Typography-led menu, reservations, and photography rhythm.",
-    image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=80",
+    detail: "Typography-led menu and reservation experience.",
+    image: "/images/projects/maison-velours.webp",
     alt: "Dimly lit fine dining interior",
     gridClass:
       "lg:col-span-7 lg:row-span-2 lg:row-start-1 lg:col-start-1 flex min-h-0 flex-col",
@@ -21,22 +20,20 @@ const PROJECTS = [
   },
   {
     name: "Stillshore",
-    type: "Fashion retail",
+    type: "Fashion",
     metric: "+34% engagement",
-    detail: "Editorial grids, soft motion, and product storytelling.",
-    image:
-      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80",
+    detail: "Editorial grids and soft product storytelling.",
+    image: "/images/projects/stillshore.webp",
     alt: "Minimal fashion styling flat lay",
     gridClass: "lg:col-span-5 lg:row-start-1 lg:col-start-8 flex flex-col",
     imageClass: "aspect-[4/5] sm:aspect-square",
   },
   {
     name: "Northline",
-    type: "Product",
+    type: "Technology",
     metric: "2× qualified demos",
-    detail: "Quiet interface clarity.",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+    detail: "Quiet interface clarity for complex software.",
+    image: "/images/projects/northline.webp",
     alt: "Bright architectural office space",
     gridClass: "lg:col-span-5 lg:row-start-2 lg:col-start-8 flex flex-col",
     imageClass: "aspect-[4/5] sm:aspect-square",
@@ -45,9 +42,8 @@ const PROJECTS = [
     name: "Atelier Lumen",
     type: "Wellness",
     metric: "Waitlist active",
-    detail: "Warm palette, generous whitespace, trust-first layout.",
-    image:
-      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
+    detail: "Generous whitespace and a trust-first layout.",
+    image: "/images/projects/atelier-lumen.webp",
     alt: "Calm spa reception area",
     gridClass: "lg:col-span-7 lg:row-start-3 lg:col-start-1 flex flex-col",
     imageClass: "aspect-[16/10] sm:aspect-[2/1]",
@@ -56,9 +52,8 @@ const PROJECTS = [
     name: "Kanso Minimal",
     type: "Architecture",
     metric: "Global press",
-    detail: "Bare materials and negative space.",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+    detail: "Bare materials and negative space in the browser.",
+    image: "/images/projects/kanso-minimal.webp",
     alt: "Minimalist concrete architecture",
     gridClass: "lg:col-span-5 lg:row-start-3 lg:col-start-8 flex flex-col",
     imageClass: "aspect-[16/11] sm:aspect-square"
@@ -68,8 +63,7 @@ const PROJECTS = [
     type: "Beauty",
     metric: "Sold out",
     detail: "Tactile glass, liquid transitions.",
-    image:
-      "https://images.unsplash.com/photo-1615397323068-d0f5ce276f59?auto=format&fit=crop&w=800&q=80",
+    image: "/images/projects/aura-skincare.webp",
     alt: "Luxury skincare bottle",
     gridClass: "hidden", // hidden on desktop grid to maintain the tight 5-layout
     imageClass: "aspect-[16/11] sm:aspect-square"
@@ -105,10 +99,10 @@ export function PortfolioSection() {
           className="max-w-xl"
         >
           <p className="text-[12px] font-light tracking-[0.14em] text-[var(--taupe)] sm:text-[13px]">
-            Selected projects
+            Selected Works
           </p>
           <h2 className="font-display mt-4 text-[clamp(1.875rem,4.8vw,3.125rem)] font-medium leading-[1.06] tracking-[-0.026em] text-[var(--charcoal)]">
-            Composed under pressure.
+            Cultivated digital presence.
           </h2>
         </motion.div>
 

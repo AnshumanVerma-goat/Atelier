@@ -55,13 +55,13 @@ export function ContactSection() {
           className="lg:col-span-5"
         >
           <p className="text-[12px] font-light tracking-[0.14em] text-[var(--taupe)] sm:text-[13px]">
-            Contact
+            Inquiries
           </p>
           <h2 className="font-display mt-4 text-[clamp(1.875rem,4vw,2.75rem)] font-medium leading-[1.06] tracking-[-0.026em] text-[var(--charcoal)]">
-            Tell me what you are building.
+            Tell us what you are building.
           </h2>
           <p className="mt-8 max-w-[28rem] text-[16px] font-light leading-[1.78] tracking-[-0.01em] text-[var(--muted)] sm:text-[17px]">
-            Share a sentence or a deck — I reply within two working days with candid fit and timing.
+            Share a single sentence or a full brief. I reply within two working days with candid thoughts on pacing and fit.
           </p>
 
           <div className="mt-12 rounded-[22px] border border-[var(--border-subtle)] bg-[var(--cream)]/92 p-7 shadow-[0_1px_0_rgba(255,255,255,0.65)_inset]">

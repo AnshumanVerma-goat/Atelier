@@ -5,20 +5,20 @@ import { motion } from "framer-motion";
 
 const SERVICES = [
   {
-    title: "Brand & editorial sites",
-    blurb: "Composition-led layouts with typography as the hero.",
+    title: "Brand & editorial platforms",
+    blurb: "Digital identities for fashion labels and independent houses. Storytelling anchored in typography and negative space.",
   },
   {
-    title: "Hospitality & retail",
-    blurb: "Menus, bookings, and products — tactile and calm.",
+    title: "Hospitality & wellness",
+    blurb: "Tactile online spaces for cafés, restaurants, and retreats. Menus, imagery, and reservations—presented plainly and beautifully.",
   },
   {
-    title: "Personal brands",
-    blurb: "Portfolios with restraint; presence without noise.",
+    title: "Portfolios & archives",
+    blurb: "Quiet online environments for architects, artists, and creators. Presence without the volume.",
   },
   {
-    title: "Product & SaaS",
-    blurb: "Clarity-first narratives before decorative motion.",
+    title: "Software & commerce",
+    blurb: "Clear, structural interfaces for aesthetic startups. Calm navigation before decorative motion.",
   },
 ] as const;
 
@@ -39,13 +39,13 @@ export function ServicesSection() {
           className="mx-auto max-w-xl text-center"
         >
           <p className="text-[12px] font-light tracking-[0.14em] text-[var(--taupe)] sm:text-[13px]">
-            Services
+            Practice
           </p>
           <h2 className="font-display mt-4 text-[clamp(1.875rem,4.8vw,3rem)] font-medium leading-[1.06] tracking-[-0.026em] text-[var(--charcoal)]">
-            A narrow practice, deeply made.
+            Websites shaped with the patience of print.
           </h2>
           <p className="mt-6 max-w-[28rem] mx-auto text-[16px] font-light leading-[1.78] tracking-[-0.01em] text-[var(--muted)] sm:text-[17px]">
-            Small roster. Long timelines when needed. Each engagement is edited like a print layout.
+            We design digital environments for hospitality, culture, and thoughtful commerce. A quiet approach to the internet, treating the screen like a canvas—where spacing, typography, and calm interactions matter most.
           </p>
         </motion.div>
 
