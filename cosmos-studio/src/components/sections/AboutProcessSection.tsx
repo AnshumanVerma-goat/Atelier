@@ -4,24 +4,24 @@ import { motion } from "framer-motion";
 
 const STEPS = [
   {
-    title: "Vocabulary",
-    body: "Brief, references, constraints—establishing a shared language before form.",
+    title: "Discovery",
+    body: "Briefs, reference mapping, and technical constraints. Defining the UI direction before touching code.",
   },
   {
-    title: "Architecture",
-    body: "The skeleton of the site. Mapping hierarchy, rhythm, and your single promise.",
+    title: "Wireframing",
+    body: "Mapping the skeleton. 12-column grids, content hierarchy, and mapping out the user journey.",
   },
   {
-    title: "Aesthetics",
-    body: "UI/UX design. Typography systems, spacing laws, and motion as punctuation.",
+    title: "Design System",
+    body: "Establishing typography scales, precise spacing rules, and soft motion curves (ease-out-expo).",
   },
   {
-    title: "Development",
-    body: "Clean code and structural editing until the experience feels inevitable on every device.",
+    title: "Engineering",
+    body: "Built natively. Clean Next.js and React codebases, headless CMS architectures, and optimized web vitals.",
   },
   {
-    title: "Exhibition",
-    body: "A measured launch, analytics integration, and a calm, curated handoff.",
+    title: "Handover",
+    body: "QA testing on all breakpoints, accessibility audits, and a seamless handover to your team.",
   },
 ];
 
@@ -45,10 +45,10 @@ export function AboutProcessSection() {
             Studio & Process
           </p>
           <h2 className="font-display mt-4 text-[clamp(2rem,4vw,2.75rem)] font-medium leading-[1.04] tracking-[-0.02em] text-[var(--charcoal)]">
-            Quiet confidence is a design decision.
+            Crafted tightly, engineered cleanly.
           </h2>
           <p className="mt-6 max-w-[28rem] text-[15px] sm:text-[16px] font-light leading-[1.75] tracking-[-0.01em] text-[var(--muted)]">
-            I partner with founders who view their website as the digital equivalent of a flagship space. Every interaction is considered. Every pixel must earn its place.
+            An independent studio practice. I design and code digital spaces for founders who see their website as a flagship. Every structural grid, bezier curve, and headless CMS integration is considered deeply.
           </p>
         </motion.div>
 

@@ -5,21 +5,21 @@ import { motion } from "framer-motion";
 const REVIEWS = [
   {
     name: "Kavya Jain",
-    role: "Fashion Label Founder",
+    role: "Creative Director, Maison Canal",
     quote:
-      "The site feels like our campaign extended — editorial, confident, never noisy.",
+      "The responsive interface seamlessly translates our editorial campaigns to mobile. The performance and custom Shopify checkout flow exceeded our expectations.",
   },
   {
     name: "Dev Malhotra",
-    role: "Founder",
+    role: "Managing Partner, Osteria Rue",
     quote:
-      "Finally a digital presence that matches how premium our product actually is.",
+      "We needed an engaging reservation experience that wasn't overly loud. The integration of the headless CMS and precise typography was handled with extreme care.",
   },
   {
     name: "Aanya Mehra",
-    role: "Brand lead",
+    role: "Lead Architect, Atelier Luma",
     quote:
-      "Restraint is rare. This work trusts whitespace the way we trust fabric.",
+      "Translating architectural portfolios online is notoriously difficult. The 12-column grid system and seamless asset loading made our work feel truly tangible.",
   },
 ];
 
@@ -44,7 +44,7 @@ export function TestimonialsSection() {
             Clients
           </p>
           <h2 className="font-display mt-4 text-[clamp(1.875rem,4.6vw,2.875rem)] font-medium leading-[1.06] tracking-[-0.026em]">
-            Words, lightly worn.
+            Studio partnerships.
           </h2>
         </motion.div>
 

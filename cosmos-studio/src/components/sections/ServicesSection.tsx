@@ -5,20 +5,20 @@ import { motion } from "framer-motion";
 
 const SERVICES = [
   {
-    title: "Brand & editorial platforms",
-    blurb: "Digital identities for fashion labels and independent houses. Storytelling anchored in typography and negative space.",
+    title: "Brand & editorial sites",
+    blurb: "Digital identities for fashion labels and independent houses. Storytelling anchored in scalable typography systems and CSS grids.",
   },
   {
-    title: "Hospitality & wellness",
-    blurb: "Tactile online spaces for cafés, restaurants, and retreats. Menus, imagery, and reservations—presented plainly and beautifully.",
+    title: "Hospitality platforms",
+    blurb: "Tactile online spaces and booking interfaces for cafés, restaurants, and retreats. Built mobile-first with headless content management.",
   },
   {
     title: "Portfolios & archives",
-    blurb: "Quiet online environments for architects, artists, and creators. Presence without the volume.",
+    blurb: "Responsive UI systems for architects, artists, and creators. Focused on content hierarchy, layout explorations, and seamless asset loading.",
   },
   {
-    title: "Software & commerce",
-    blurb: "Clear, structural interfaces for aesthetic startups. Calm navigation before decorative motion.",
+    title: "Frontend & e-commerce",
+    blurb: "Development for modern startups and independent stores. Wireframing, interaction studies, and clean React codebases.",
   },
 ] as const;
 
@@ -42,10 +42,10 @@ export function ServicesSection() {
             Practice
           </p>
           <h2 className="font-display mt-4 text-[clamp(1.875rem,4.8vw,3rem)] font-medium leading-[1.06] tracking-[-0.026em] text-[var(--charcoal)]">
-            Websites shaped with the patience of print.
+            Custom interfaces engineered with care.
           </h2>
           <p className="mt-6 max-w-[28rem] mx-auto text-[16px] font-light leading-[1.78] tracking-[-0.01em] text-[var(--muted)] sm:text-[17px]">
-            We design digital environments for hospitality, culture, and thoughtful commerce. A quiet approach to the internet, treating the screen like a canvas—where spacing, typography, and calm interactions matter most.
+            We design and build digital platforms for hospitality, culture, and independent commerce. An engaged studio approach where responsive breakpoints, headless CMS architectures, and editorial typography are crafted intentionally.
           </p>
         </motion.div>
 

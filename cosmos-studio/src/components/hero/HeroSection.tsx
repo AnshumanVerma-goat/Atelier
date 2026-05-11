@@ -92,7 +92,7 @@ export function HeroSection() {
                 >
                   <div className="absolute -left-5 sm:-left-8 top-2.5 h-px w-3 sm:w-5 bg-[var(--charcoal)]/30" />
                   <p className="text-[15px] sm:text-[15.5px] font-light leading-[1.75] tracking-[-0.01em] text-[var(--charcoal)]/85 sm:text-justify max-w-[22rem]">
-                    We design and develop premium digital experiences for houses that value restraint. Blending thoughtful UI/UX with elegant engineering to create spaces focused on typography and quiet motion.
+                    An independent design and development practice. We build custom websites, headless ecommerce platforms, and booking systems for hospitality and fashion labels. Grounded in strict typography systems, UI/UX interaction studies, and clean frontend development.
                   </p>
                 </motion.div>
 
@@ -109,8 +109,8 @@ export function HeroSection() {
                     className="group relative flex items-center gap-5 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] font-medium text-[var(--charcoal)] w-fit"
                   >
                     <span className="relative overflow-hidden py-1">
-                      <span className="inline-block transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:-translate-y-[120%]">Enter Exhibition</span>
-                      <span className="absolute inset-0 translate-y-[120%] inline-block transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:translate-y-[10%]">Enter Exhibition</span>
+                      <span className="inline-block transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:-translate-y-[120%]">View Portfolio</span>
+                      <span className="absolute inset-0 translate-y-[120%] inline-block transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:translate-y-[10%]">View Portfolio</span>
                     </span>
                     <div className="flex justify-center items-center h-[1px] w-12 sm:w-16 overflow-hidden bg-transparent relative">
                        {/* Idle Line */}
